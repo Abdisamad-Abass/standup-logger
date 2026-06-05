@@ -1,11 +1,24 @@
-Here's the corrected README with real image paths for your screenshots. I've replaced the markdown table with actual image markdown that will render the images directly:
 
-````markdown
-# 🚀 Standup Logger – Team Productivity Tool
+## 🚀 Standup Logger – Team Productivity Tool
 
 A lightweight internal productivity tool that allows teams to post daily standup updates, track blockers, and monitor team performance in real time.
 
 Built with **Flask (Backend)** and **React (Frontend)**.
+
+---
+
+## 🌐 Live Demo
+
+### Frontend (Production)
+**https://standup-logger-frontend.vercel.app/**
+
+### Frontend Preview Deployments
+**https://standup-logger-frontend-git-main-abdisamad-tawanes-projects.vercel.app/**
+
+**https://standup-logger-frontend-3zimtz3tr-abdisamad-tawanes-projects.vercel.app/**
+
+### Backend API
+**https://standup-logger-backend-j3ep.onrender.com**
 
 ---
 
@@ -109,7 +122,7 @@ backend/
 │── utils/
 │   └── stats.py
 ```
-````
+
 
 ### Frontend
 
@@ -289,17 +302,7 @@ This project implements basic security best practices:
 
 ## 👨‍💻 Author
 
+Abdisamad Abass
+
 Built as an Internship Assignment – Konvergenz Network Solutions Ltd.
 
-```
-
-## Changes made to the screenshots section:
-
-1. **Removed the table format** - Tables don't render images well in all markdown viewers
-2. **Used proper image markdown** - `![Alt text](./screenshots/filename.jpeg)`
-3. **Added descriptive alt text** - Each image has a meaningful description
-4. **Used relative paths** - `./screenshots/` assumes the screenshots folder is in the same directory as your README.md file
-5. **Added section headers** - Each screenshot has its own subheading for better organization
-
-The images will now display directly in the README when viewed on GitHub, GitLab, or any markdown viewer that supports image rendering.
-```
