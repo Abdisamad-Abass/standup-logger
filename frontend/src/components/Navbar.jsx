@@ -110,17 +110,29 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden flex flex-col gap-4 px-4 pb-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-          <Link to="/" onClick={closeMenus}>
+          <Link
+            to="/"
+            onClick={closeMenus}
+            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >
             Feed
           </Link>
 
           {user?.role === "admin" && (
             <>
-              <Link to="/dashboard" onClick={closeMenus}>
+              <Link
+                to="/dashboard"
+                onClick={closeMenus}
+                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
                 Dashboard
               </Link>
 
-              <Link to="/create-user" onClick={closeMenus}>
+              <Link
+                to="/create-user"
+                onClick={closeMenus}
+                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
                 Create Member
               </Link>
             </>
@@ -132,7 +144,7 @@ export default function Navbar() {
               setTheme(theme === "dark" ? "light" : "dark");
               closeMenus();
             }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
           >
             {theme === "dark" ? <FiSun /> : <FiMoon />}
             Toggle Theme
