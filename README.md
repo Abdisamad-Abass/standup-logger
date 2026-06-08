@@ -250,14 +250,33 @@ The system tracks:
 
 ## 🌦️ Weather API Integration
 
-This project uses the Open-Meteo API:
+The application integrates with the Open-Meteo Weather API to display real-time weather information for Nairobi, Kenya.
 
-```
-https://api.open-meteo.com/v1/forecast
+### API Endpoint Used
+
+```http
+https://api.open-meteo.com/v1/forecast?latitude=-1.286389&longitude=36.817223&current=temperature_2m,weather_code
 ```
 
-- ✅ No API key required
-- ✅ Displays Nairobi weather in real time
+### Weather Features
+
+- Real-time temperature display
+- Weather condition mapping (Sunny, Cloudy, Rainy, etc.)
+- Nairobi, Kenya location data
+- No API key required
+- Lightweight and fast public weather service
+
+### Example Response
+
+```json
+{
+  "current": {
+    "temperature_2m": 23.4,
+    "weather_code": 1,
+    "time": "2026-06-08T10:00"
+  }
+}
+```
 
 ---
 
