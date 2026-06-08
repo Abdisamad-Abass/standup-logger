@@ -177,7 +177,7 @@ python app.py
 #### 🌐 Backend URL
 
 ```
-http://127.0.0.1:5001
+http://127.0.0.1:10000
 ```
 
 ---
@@ -196,7 +196,7 @@ npm install
 Create a `.env` file in the frontend folder:
 
 ```env
-VITE_API_URL=http://127.0.0.1:5001
+VITE_API_URL=http://127.0.0.1:10000
 ```
 
 #### ▶️ Run frontend server
