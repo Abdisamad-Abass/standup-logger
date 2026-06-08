@@ -116,6 +116,8 @@ backend/
 │── config.py
 │── models.py
 │── extensions.py
+│── requirements.txt
+│── .env
 │── routes/
 │   ├── auth.py
 │   └── standups.py
@@ -123,19 +125,24 @@ backend/
 │   └── stats.py
 ```
 
-
 ### Frontend
 
 ```bash
 frontend/
 │── src/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
 │   ├── api/
+│   ├── components/
 │   ├── context/
-│   ├── utils/
-│   └── layouts/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── pages/
+│   ├── routes/
+│   └── utils/
+│── public/
+│── package.json
+│── vite.config.js
+│── vercel.json
+│── .env
 ```
 
 ---
