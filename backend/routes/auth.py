@@ -91,3 +91,13 @@ def create_user():
     db.session.commit()
 
     return jsonify({"message": "Member created"}), 201
+
+
+# MEMBER COUNT (ADMIN DASHBOARD)
+@auth_bp.route("/auth/member-count", methods=["GET"])
+def member_count():
+    total_members = User.query.filter_by(role="member").count()
+
+    return jsonify({
+        "total_members": total_members
+    }), 200

@@ -3,9 +3,11 @@ import StatCard from "../components/StatCard";
 import PostsChart from "../components/PostsChart";
 import BlockersChart from "../components/BlockersChart";
 import TeamActivityChart from "../components/TeamActivityChart";
+import useMemberCount from "../hooks/useMemberCount";
 
 export default function DashboardPage() {
   const { stats, loading, error } = useStats();
+  const { count: memberCount } = useMemberCount();
 
   if (loading) {
     return (
@@ -45,7 +47,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <StatCard title="Total Posts" value={totalPosts} color="blue" />
 
         <StatCard title="Blockers" value={totalBlockers} color="red" />
@@ -57,6 +59,8 @@ export default function DashboardPage() {
           value={Math.round(totalPosts / 7 || 0)}
           color="yellow"
         />
+
+        <StatCard title="Total Members" value={memberCount} color="blue" />
       </div>
 
       {/* Chart */}
