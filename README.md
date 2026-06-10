@@ -63,6 +63,7 @@ The Standup Logger replaces traditional daily standup meetings with an asynchron
 - Blocker count
 - Team health score
 - Average posts per day
+- Total members
 - Charts:
   - Posts per day (7 days)
   - Blockers per day
@@ -244,6 +245,7 @@ The system tracks:
 - Total blockers reported
 - Team health percentage
 - Average posts per day
+- Total team members
 - Individual team contribution
 
 ---
