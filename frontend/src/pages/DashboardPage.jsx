@@ -60,7 +60,7 @@ export default function DashboardPage() {
           color="yellow"
         />
 
-        <StatCard title="Total Members" value={memberCount} color="blue" />
+        <StatCard title="Total Members" value={memberCount} color="users" />
       </div>
 
       {/* Chart */}

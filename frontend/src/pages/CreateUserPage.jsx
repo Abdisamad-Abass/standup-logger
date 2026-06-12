@@ -144,7 +144,7 @@ export default function CreateUserPage() {
               type="submit"
               disabled={loading}
               className={`w-full py-3 rounded-xl font-semibold shadow-md transition-all duration-200 text-white
-                ${loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 hover:shadow-lg"}
+                ${loading ? "bg-blue-400 cursor-not-allowed" : "bg-[#2563EB] hover:bg-blue-700 hover:shadow-lg"}
                    `}
             >
               {loading ? "Creating Member..." : "Create Member"}

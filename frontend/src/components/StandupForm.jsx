@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
 import toast from "react-hot-toast";
 import { createStandup } from "../api/standupApi";
+import { FaRegEdit } from "react-icons/fa";
+import { MdUploadFile } from "react-icons/md";
+import { IoSendSharp } from "react-icons/io5";
 
 export default function StandupForm({ onSuccess }) {
   const fileInputRef = useRef(null);
@@ -93,17 +96,17 @@ export default function StandupForm({ onSuccess }) {
 
   const inputStyle =
     "w-full border rounded-lg px-3 py-2 text-sm outline-none transition " +
-    "bg-white dark:bg-gray-800 " +
-    "border-gray-200 dark:border-gray-700 " +
+    "bg-[#F8F9FF] dark:bg-[#111418] " +
+    "border-[#E5E7F0] dark:border-[#222731] " +
     "text-gray-900 dark:text-white " +
     "placeholder-gray-400 dark:placeholder-gray-500 " +
     "focus:ring-2 focus:ring-blue-500 focus:border-blue-500";
 
   return (
-    <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md space-y-5 border border-gray-100 dark:border-gray-800 transition-colors">
+    <div className="bg-white dark:bg-[#0C0E12] p-6 rounded-xl shadow-md space-y-5 border border-[#C3C6D7] dark:border-[#3F4759] transition-colors">
       {/* Title */}
-      <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-        Daily Standup
+      <h2 className="text-lg font-bold text-[#2563EB] dark:text-white flex items-center gap-2">
+        <FaRegEdit className="text-xl" /> Daily Standup
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -155,19 +158,54 @@ export default function StandupForm({ onSuccess }) {
         </label>
 
         {/* File Upload */}
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={handleFile}
-          className={`${inputStyle} file:mr-3 file:py-1 file:px-3 file:border-0 file:bg-blue-600 file:text-white file:rounded-md`}
-        />
+        <div className="relative">
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFile}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          />
+
+          <div
+            className="
+              w-full flex flex-col items-center justify-center gap-2 px-4 py-6 rounded-xl
+              border-2 border-dashed border-[#cfd6e6] dark:border-[#2a2f3a]
+              bg-[#F8F9FF] dark:bg-[#111418] text-gray-600 dark:text-gray-300
+              hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800
+              hover:shadow-md
+              transition-all duration-200 ease-in-out
+              cursor-pointer
+            "
+          >
+            <MdUploadFile className="text-3xl text-blue-500" />
+
+            <p className="text-sm font-medium">
+              {form.file ? form.file.name : "Drag & drop your file here"}
+            </p>
+
+            <p className="text-xs text-gray-400 dark:text-gray-500">
+              or click to browse (PDF, image, docs)
+            </p>
+          </div>
+        </div>
 
         {/* Submit */}
         <button
+          type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 active:scale-[0.99] transition disabled:opacity-60"
+          className="w-full relative flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-white bg-[#004AC6]  hover:bg-blue-600 shadow-md hover:shadow-xl transition-all duration-200 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none"
         >
-          {loading ? "Submitting..." : "Submit Standup"}
+          {loading ? (
+            <>
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              Submitting...
+            </>
+          ) : (
+            <>
+              <IoSendSharp className="text-xl" />
+              Submit Standup
+            </>
+          )}
         </button>
       </form>
     </div>

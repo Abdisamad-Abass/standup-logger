@@ -11,7 +11,7 @@ export default function FeedPage() {
   const isAdmin = user?.role === "admin";
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 ">
       <FeedHeader />
 
       <div

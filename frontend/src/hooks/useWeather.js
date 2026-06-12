@@ -8,14 +8,27 @@ export default function useWeather() {
 
   useEffect(() => {
     const loadWeather = async () => {
-      try {
-        const data = await fetchWeather();
-        setWeather(data);
-      } catch (err) {
-        setError(true);
-      } finally {
-        setLoading(false);
+      let attempts = 0;
+
+      while (attempts < 3) {
+        try {
+          const data = await fetchWeather();
+
+          setWeather(data);
+          setError(false);
+          break;
+        } catch (err) {
+          attempts++;
+
+          if (attempts === 3) {
+            setError(true);
+          }
+
+          await new Promise((r) => setTimeout(r, 1000));
+        }
       }
+
+      setLoading(false);
     };
 
     loadWeather();

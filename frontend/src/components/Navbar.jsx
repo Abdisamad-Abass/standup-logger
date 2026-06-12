@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 import { FiMenu, FiX, FiSun, FiMoon, FiLogOut, FiUser } from "react-icons/fi";
@@ -16,50 +16,58 @@ export default function Navbar() {
     setUserMenuOpen(false);
   };
 
+  const navClass = ({ isActive }) =>
+    `relative pb-1 transition ${
+      isActive
+        ? "text-blue-600 dark:text-blue-400 after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-blue-600"
+        : "text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
+    }`;
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm transition-colors">
-      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <nav className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-[#252A35] bg-white dark:bg-[#0C0E12] backdrop-blur-lg shadow-md transition-all">
+      <div className="max-w-7xl mx-auto grid grid-cols-3 items-center p-4">
         {/* Logo */}
-        <div className="font-bold text-lg text-gray-800 dark:text-white">
+        <div className="font-bold text-xl text-[#004AC6] dark:text-white">
           Standup Logger
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-5 text-sm">
-          <Link
-            to="/"
-            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-          >
+        <div className="hidden md:flex justify-center items-center gap-8 text-base font-medium">
+          <NavLink to="/" className={navClass}>
             Feed
-          </Link>
+          </NavLink>
 
           {user?.role === "admin" && (
             <>
-              <Link
-                to="/dashboard"
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-              >
+              <NavLink to="/dashboard" className={navClass}>
                 Dashboard
-              </Link>
+              </NavLink>
 
-              <Link
-                to="/create-user"
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-              >
+              <NavLink to="/create-user" className={navClass}>
                 Create Member
-              </Link>
+              </NavLink>
             </>
           )}
+        </div>
 
+        {/* User & Theme */}
+        <div className="hidden md:flex justify-end items-center gap-4">
           {/* Theme Toggle */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="
+                flex items-center justify-center
+                w-11 h-11 rounded-full
+                bg-gray-100 dark:bg-gray-800
+                shadow-sm hover:shadow-md hover:scale-105
+                transition-all duration-300
+              "
+            title="Toggle theme"
           >
             {theme === "dark" ? (
-              <FiSun className="text-yellow-400" />
+              <FiSun className="text-white text-xl" />
             ) : (
-              <FiMoon className="text-gray-700" />
+              <FiMoon className="text-[#004AC6] text-xl" />
             )}
           </button>
 
@@ -68,17 +76,17 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#2563EB] text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 transition-all"
               >
-                <FiUser />
-                <span className="max-w-[100px] truncate">
+                <FiUser className="text-lg" />
+                <span className="max-w-[120px] font-medium truncate">
                   {user.name || user.full_name || "User"}
                 </span>
               </button>
 
               {userMenuOpen && (
                 <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
-                  <div className="px-3 py-2 text-xs text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
+                  <div className="px-3 py-2 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
                     {user.role}
                   </div>
 
@@ -87,10 +95,25 @@ export default function Navbar() {
                       logout();
                       setUserMenuOpen(false);
                     }}
-                    className="flex items-center gap-2 w-full px-3 py-2 text-left text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition"
+                    className="
+                        flex items-center gap-3 w-full px-4 py-2.5
+                        text-sm font-medium
+                        text-red-600 dark:text-red-400
+                        hover:bg-red-50 dark:hover:bg-red-900/20
+                        transition-all duration-200
+                      "
                   >
-                    <FiLogOut />
-                    Logout
+                    <span
+                      className="
+                        flex items-center justify-center
+                        w-8 h-8 rounded-full
+                        bg-red-100 dark:bg-red-900/30
+                      "
+                    >
+                      <FiLogOut className="text-red-600 dark:text-red-400" />
+                    </span>
+
+                    <span>Logout</span>
                   </button>
                 </div>
               )}
@@ -110,44 +133,47 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden flex flex-col gap-4 px-4 pb-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-          <Link
-            to="/"
-            onClick={closeMenus}
-            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-          >
+          <NavLink to="/" onClick={closeMenus} className={navClass}>
             Feed
-          </Link>
+          </NavLink>
 
           {user?.role === "admin" && (
             <>
-              <Link
+              <NavLink
                 to="/dashboard"
                 onClick={closeMenus}
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+                className={navClass}
               >
                 Dashboard
-              </Link>
+              </NavLink>
 
-              <Link
+              <NavLink
                 to="/create-user"
                 onClick={closeMenus}
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+                className={navClass}
               >
                 Create Member
-              </Link>
+              </NavLink>
             </>
           )}
 
           {/* Theme Toggle */}
           <button
-            onClick={() => {
-              setTheme(theme === "dark" ? "light" : "dark");
-              closeMenus();
-            }}
-            className="flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="
+              flex items-center justify-center
+              w-11 h-11 rounded-full
+              bg-gray-100 dark:bg-gray-800
+              shadow-sm hover:shadow-md hover:scale-105
+              transition-all duration-300
+            "
+            title="Toggle theme"
           >
-            {theme === "dark" ? <FiSun /> : <FiMoon />}
-            Toggle Theme
+            {theme === "dark" ? (
+              <FiSun className="text-[#004AC6] text-xl" />
+            ) : (
+              <FiMoon className="text-[#004AC6] text-xl" />
+            )}
           </button>
 
           {/* Logout */}
@@ -155,12 +181,27 @@ export default function Navbar() {
             <button
               onClick={() => {
                 logout();
-                closeMenus();
+                setUserMenuOpen(false);
               }}
-              className="text-red-600 flex items-center gap-2"
+              className="
+                flex items-center gap-3 w-full px-4 py-2.5
+                text-sm font-medium
+                text-red-600 dark:text-red-400
+                hover:bg-red-50 dark:hover:bg-red-900/20
+                transition-all duration-200
+              "
             >
-              <FiLogOut />
-              Logout
+              <span
+                className="
+                  flex items-center justify-center
+                  w-8 h-8 rounded-full
+                  bg-red-100 dark:bg-red-900/30
+                "
+              >
+                <FiLogOut className="text-red-600 dark:text-red-400" />
+              </span>
+
+              <span>Logout</span>
             </button>
           )}
         </div>
