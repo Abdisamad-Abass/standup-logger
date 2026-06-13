@@ -55,9 +55,9 @@ export default function PostsChart({ data }) {
         <div className="flex items-center gap-4">
           {/* Icon */}
           <div
-            className="
-              w-14
-              h-14
+            className="w-10 h-10
+              md:w-14
+              md:h-14
               rounded-2xl
               flex
               items-center
@@ -76,8 +76,8 @@ export default function PostsChart({ data }) {
           <div>
             <h2
               className="
-                text-xl
-                font-bold
+                text-lg md:text-xl
+                md:font-bold font-semibold
                 text-gray-900
                 dark:text-white
               "
@@ -87,7 +87,7 @@ export default function PostsChart({ data }) {
 
             <p
               className="
-                text-sm
+                text-xs md:text-sm
                 text-gray-500
                 dark:text-gray-400
               "
@@ -100,7 +100,7 @@ export default function PostsChart({ data }) {
         {/* Summary */}
         <div
           className="
-            hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-900/20
+            flex sm:flex items-center gap-2 px-2 py-1 md:px-4 md:py-2 rounded-xl bg-blue-50 dark:bg-blue-900/20
             text-blue-600 dark:text-blue-400"
         >
           <FiTrendingUp />
