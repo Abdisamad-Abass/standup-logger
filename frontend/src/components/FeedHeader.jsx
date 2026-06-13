@@ -37,8 +37,10 @@ export default function FeedHeader() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex md:justify-end items-center h-full">
-          <WeatherCard />
+        <div className="w-full md:w-auto flex md:justify-end items-center h-full">
+          <div className="w-full md:w-auto">
+            <WeatherCard />
+          </div>
         </div>
       </div>
     </div>

@@ -46,9 +46,9 @@ export default function CreateUserPage() {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4">
+    <div className="min-h-[80vh] flex items-center justify-center px-2 md:px-4">
       <div className="w-full max-w-lg">
-        <div className="bg-white dark:bg-gray-900 shadow-xl rounded-2xl border border-gray-200 dark:border-gray-800 p-8">
+        <div className="bg-white dark:bg-gray-900 shadow-xl rounded-2xl border border-gray-200 dark:border-gray-800 md:p-8 p-6">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
               Create Member

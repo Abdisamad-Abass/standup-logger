@@ -23,16 +23,23 @@ export default function Navbar() {
         : "text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
     }`;
 
+  const mobileNavClass = ({ isActive }) =>
+    `relative inline-block w-fit pb-1 transition ${
+      isActive
+        ? "text-blue-600 dark:text-blue-400 after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-blue-600 after:rounded-full"
+        : "text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
+    }`;
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-[#252A35] bg-white dark:bg-[#0C0E12] backdrop-blur-lg shadow-md transition-all">
-      <div className="max-w-7xl mx-auto grid grid-cols-3 items-center p-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="font-bold text-xl text-[#004AC6] dark:text-white">
           Standup Logger
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex justify-center items-center gap-8 text-base font-medium">
+        <div className="hidden md:flex items-center gap-8 text-base font-medium ml-auto mr-8">
           <NavLink to="/" className={navClass}>
             Feed
           </NavLink>
@@ -51,7 +58,7 @@ export default function Navbar() {
         </div>
 
         {/* User & Theme */}
-        <div className="hidden md:flex justify-end items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           {/* Theme Toggle */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -132,8 +139,21 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-4 px-4 pb-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-          <NavLink to="/" onClick={closeMenus} className={navClass}>
+        <div className="md:hidden fixed flex flex-col top-0 right-0 w-[80%]  h-[100dvh] overflow-y-auto bg-white dark:bg-[#0C0E12] border-t border-gray-200 dark:border-gray-800 px-4 py-5 space-y-5 shadow-xl">
+          {/* Close Button & Logo */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="font-bold text-xl text-[#004AC6] dark:text-white animate-pulse">
+              <span className="text-blue-900">Stand</span>up Logger
+            </div>
+
+            <button
+              onClick={closeMenus}
+              className="text-2xl text-gray-700 dark:text-white"
+            >
+              <FiX />
+            </button>
+          </div>
+          <NavLink to="/" onClick={closeMenus} className={mobileNavClass}>
             Feed
           </NavLink>
 
@@ -142,7 +162,7 @@ export default function Navbar() {
               <NavLink
                 to="/dashboard"
                 onClick={closeMenus}
-                className={navClass}
+                className={mobileNavClass}
               >
                 Dashboard
               </NavLink>
@@ -150,7 +170,7 @@ export default function Navbar() {
               <NavLink
                 to="/create-user"
                 onClick={closeMenus}
-                className={navClass}
+                className={mobileNavClass}
               >
                 Create Member
               </NavLink>
@@ -161,18 +181,22 @@ export default function Navbar() {
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="
-              flex items-center justify-center
-              w-11 h-11 rounded-full
-              bg-gray-100 dark:bg-gray-800
-              shadow-sm hover:shadow-md hover:scale-105
-              transition-all duration-300
-            "
-            title="Toggle theme"
+    flex items-center justify-between
+    w-full px-4 py-3
+    rounded-xl
+    bg-gray-100 dark:bg-gray-800
+    text-gray-800 dark:text-gray-200
+    font-medium
+    shadow-sm hover:shadow-md
+    transition-all duration-200
+  "
           >
+            <span>Theme</span>
+
             {theme === "dark" ? (
-              <FiSun className="text-[#004AC6] text-xl" />
+              <FiSun className="text-yellow-400 text-xl" />
             ) : (
-              <FiMoon className="text-[#004AC6] text-xl" />
+              <FiMoon className="text-blue-600 text-xl" />
             )}
           </button>
 

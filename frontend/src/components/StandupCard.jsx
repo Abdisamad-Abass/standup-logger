@@ -26,7 +26,7 @@ export default function StandupCard({ post }) {
   };
 
   return (
-    <div className="bg-white dark:bg-[#0C0E12] border border-[#C3C6D7] dark:border-[#3F4759] rounded-xl p-4 shadow-sm space-y-3 transition-colors">
+    <div className="bg-white dark:bg-[#0C0E12] border border-[#C3C6D7] dark:border-[#3F4759] rounded-xl md:p-4 p-2 shadow-sm space-y-3 transition-colors">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
@@ -34,7 +34,7 @@ export default function StandupCard({ post }) {
             {post.author}
           </h3>
 
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-2 text-xs md:text-sm">
             <span className="text-gray-500 dark:text-gray-400">
               {formatNairobiTime(post.timestamp)}
             </span>
@@ -60,14 +60,12 @@ export default function StandupCard({ post }) {
       <div className="space-y-2 text-sm text-gray-700 dark:text-gray-400">
         {/* Yesterday */}
         <div>
-          <p className="font-medium text-[#2563EB] dark:text-gray-300">
-            Yesterday
-          </p>
+          <p className="font-medium text-[#2563EB]">Yesterday</p>
           <p>{post.yesterday}</p>
         </div>
 
         <div>
-          <p className="font-medium text-[#10B981] dark:text-gray-300">Today</p>
+          <p className="font-medium text-[#10B981]">Today</p>
           <p>{post.today}</p>
         </div>
 
@@ -82,74 +80,58 @@ export default function StandupCard({ post }) {
       </div>
 
       {/* File attachment */}
-      {/* File attachment */}
       {post.file && (
         <a
           href={`${import.meta.env.VITE_API_URL}/standups/download/${post.id}`}
           target="_blank"
           rel="noreferrer"
           className="
-      mt-3
-      flex items-center justify-between gap-3
-
-      px-4 py-3
-      rounded-xl
-
-      bg-gradient-to-r 
-      from-blue-50 to-indigo-50
-      dark:from-blue-900/20 dark:to-indigo-900/20
-
-      border border-blue-200
-      dark:border-blue-800
-
-      hover:shadow-md
-      hover:border-blue-400
-
-      transition-all duration-200
-      group
-    "
+              mt-3
+              flex items-center justify-between gap-1 md:gap-3
+              px-1 py-2 md:px-4 md:py-3
+              rounded-xl
+              bg-gradient-to-r 
+              from-blue-50 to-indigo-50
+              dark:from-blue-900/20 dark:to-indigo-900/20
+              border border-blue-200
+              dark:border-blue-800
+              hover:shadow-md
+              hover:border-blue-400
+              transition-all duration-200
+              group
+            "
         >
           {/* Left section */}
           <div className="flex items-center gap-3">
             {/* Icon box */}
             <div
-              className="
-          w-10 h-10
-          flex items-center justify-center
-
-          rounded-lg
-
-          bg-blue-600
-          text-white
-
-          shadow-sm
-
-          group-hover:scale-105
-          transition
-        "
+              className="w-8 h-8
+                md:w-10 md:h-10
+                flex items-center justify-center
+                rounded-lg
+                bg-blue-600
+                text-white
+                shadow-sm
+                group-hover:scale-105
+                transition
+              "
             >
-              <FiDownload className="text-xl" />
+              <FiDownload className="text-base md:text-xl" />
             </div>
 
             <div>
               <p
                 className="
-          text-sm 
-          font-semibold
-          text-gray-800
-          dark:text-gray-100
+                  md:text-sm text-xs
+                  font-medium md:font-semibold
+                  text-gray-800
+                  dark:text-gray-100
         "
               >
                 Download Attachment
               </p>
 
-              <p
-                className="
-          text-xs
-          text-gray-500
-          dark:text-gray-400
-        "
-              >
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 Click to download file
               </p>
             </div>
@@ -157,23 +139,18 @@ export default function StandupCard({ post }) {
 
           {/* File Type Badge */}
           <span
-            className="
-        px-3 py-1
-
-        rounded-full
-
-        text-xs font-medium
-
-        bg-white
-        dark:bg-gray-900
-
-        text-blue-600
-        dark:text-blue-400
-
-        border
-        border-blue-200
-        dark:border-blue-700
-      "
+            className="px-2
+              md:px-3 py-1
+              rounded-full
+              text-xs font-medium
+              bg-white
+              dark:bg-gray-900
+              text-blue-600
+              dark:text-blue-400
+              border
+              border-blue-200
+              dark:border-blue-700
+            "
           >
             {getFileType(post.file_name)}
           </span>

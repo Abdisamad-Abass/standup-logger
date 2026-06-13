@@ -16,22 +16,12 @@ export default function PostsChart({ data }) {
   return (
     <div
       className="
-        relative overflow-hidden
-
-        bg-white
-        dark:bg-[#020617]
-
-        p-6
-
-        rounded-3xl
-
-        border
+        relative overflow-hidden bg-white
+        dark:bg-[#020617] p-5 md:p-6
+        rounded-3xl border
         border-[#C1C4D5]
-        dark:border-[#2A3142]
-
-        shadow-sm
+        dark:border-[#2A3142] shadow-sm
         hover:shadow-2xl
-
         transition-all duration-300
       "
     >
@@ -41,15 +31,11 @@ export default function PostsChart({ data }) {
           absolute
           -right-12
           -top-12
-
           w-40
           h-40
-
           rounded-full
-
           bg-blue-100
           dark:bg-blue-900/20
-
           opacity-50
         "
       />
@@ -59,7 +45,6 @@ export default function PostsChart({ data }) {
         className="
           relative
           z-10
-
           flex
           items-center
           justify-between
@@ -73,21 +58,15 @@ export default function PostsChart({ data }) {
             className="
               w-14
               h-14
-
               rounded-2xl
-
               flex
               items-center
               justify-center
-
               bg-gradient-to-br
               from-blue-500
               to-indigo-600
-
               text-white
-
               text-2xl
-
               shadow-lg
             "
           >
@@ -99,7 +78,6 @@ export default function PostsChart({ data }) {
               className="
                 text-xl
                 font-bold
-
                 text-gray-900
                 dark:text-white
               "
@@ -110,7 +88,6 @@ export default function PostsChart({ data }) {
             <p
               className="
                 text-sm
-
                 text-gray-500
                 dark:text-gray-400
               "

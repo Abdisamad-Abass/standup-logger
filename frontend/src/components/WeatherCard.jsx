@@ -18,13 +18,16 @@ export default function WeatherCard() {
     if (code <= 2)
       return <WiDayCloudy className="animate-pulse text-blue-400" />;
 
-    if (code <= 3) return <WiCloud className="animate-pulse text-gray-400" />;
+    if (code <= 3)
+      return (
+        <WiCloud className="animate-pulse text-slate-500 dark:text-slate-300" />
+      );
 
     if (code <= 48) return <WiFog className="animate-pulse text-gray-500" />;
 
-    if (code <= 67) return <WiRain className="animate-bounce text-blue-500" />;
+    if (code <= 67) return <WiRain className="animate-pulse text-blue-500" />;
 
-    if (code <= 82) return <WiRain className="animate-bounce text-blue-600" />;
+    if (code <= 82) return <WiRain className="animate-pulse text-blue-600" />;
 
     return <WiThunderstorm className="animate-pulse text-purple-500" />;
   };
