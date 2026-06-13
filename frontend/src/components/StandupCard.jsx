@@ -88,7 +88,7 @@ export default function StandupCard({ post }) {
           className="
               mt-3
               flex items-center justify-between gap-1 md:gap-3
-              px-1 py-2 md:px-4 md:py-3
+              px-1 md:px-4 py-3
               rounded-xl
               bg-gradient-to-r 
               from-blue-50 to-indigo-50

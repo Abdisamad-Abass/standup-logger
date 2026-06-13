@@ -143,6 +143,8 @@ export default function LoginPage() {
                 w-full py-3 rounded-xl
                 bg-[#2563EB]
                 hover:bg-[#1D4ED8]
+                disabled:bg-blue-400
+                disabled:cursor-not-allowed
                 text-white font-semibold
                 transition-all duration-300
                 shadow-lg hover:shadow-xl
