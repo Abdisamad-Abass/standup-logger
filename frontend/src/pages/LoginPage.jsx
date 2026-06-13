@@ -4,6 +4,7 @@ import { loginUser } from "../api/authApi";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import { FiEye, FiEyeOff, FiMail, FiLock, FiUsers } from "react-icons/fi";
+import { PiWarningCircle } from "react-icons/pi";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -156,7 +157,8 @@ export default function LoginPage() {
           </form>
 
           {/* Footer */}
-          <div className="mt-6 text-center relative z-10">
+          <div className="flex mt-6 text-center relative z-10">
+            <PiWarningCircle className="text-xl text-[#2563EB]" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Make sure you select the correct role before logging in
             </p>
