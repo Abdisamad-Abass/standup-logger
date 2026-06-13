@@ -100,7 +100,7 @@ export default function PostsChart({ data }) {
         {/* Summary */}
         <div
           className="
-            flex sm:flex items-center gap-2 px-2 py-1 md:px-4 md:py-2 rounded-xl bg-blue-50 dark:bg-blue-900/20
+            flex sm:flex items-center gap-2 px-2 py-1 md:px-4 md:py-2 rounded-xl bg-blue-100 dark:bg-blue-900/20
             text-blue-600 dark:text-blue-400"
         >
           <FiTrendingUp />
