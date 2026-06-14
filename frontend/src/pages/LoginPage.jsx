@@ -57,9 +57,10 @@ export default function LoginPage() {
 
           {/* Header */}
           <div className="text-center mb-8 relative z-10">
-            <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
-              Standup Logger
+            <h1 className="text-3xl font-bold text-[#004090]">
+              Standup <span className="text-[#268520]">Logger</span>
             </h1>
+
             <p className="mt-2 text-gray-500 dark:text-gray-400">
               Welcome back — login to continue
             </p>
@@ -157,7 +158,7 @@ export default function LoginPage() {
           </form>
 
           {/* Footer */}
-          <div className="flex mt-6 text-center relative z-10">
+          <div className="flex gap-2 mt-6 relative z-10">
             <PiWarningCircle className="text-xl text-[#2563EB]" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Make sure you select the correct role before logging in

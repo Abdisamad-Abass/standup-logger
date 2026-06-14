@@ -34,8 +34,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-[#252A35] bg-white dark:bg-[#0C0E12] backdrop-blur-lg shadow-md transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <div className="font-bold text-xl text-[#004AC6] dark:text-white">
-          Standup Logger
+        <div className="font-bold text-xl text-[#004090]">
+          Standup <span className="text-[#268520]">Logger</span>
         </div>
 
         {/* Desktop Links */}
@@ -142,8 +142,8 @@ export default function Navbar() {
         <div className="md:hidden fixed flex flex-col top-0 right-0 w-[80%]  h-[100dvh] overflow-y-auto bg-white dark:bg-[#0C0E12] border-t border-gray-200 dark:border-gray-800 px-4 py-5 space-y-5 shadow-xl">
           {/* Close Button & Logo */}
           <div className="flex items-center justify-between mb-6">
-            <div className="font-bold text-xl text-[#004AC6] dark:text-white animate-pulse">
-              <span className="text-blue-900">Stand</span>up Logger
+            <div className="font-bold text-xl text-[#004090] dark:text-white animate-pulse">
+              Standup <span className="text-[#268520]">Logger</span>
             </div>
 
             <button
