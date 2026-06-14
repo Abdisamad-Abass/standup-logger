@@ -16,6 +16,11 @@ export default function CreateUserPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!form.full_name || !form.email || !form.password) {
+      toast.error("All fields are required");
+      return;
+    }
+
     setLoading(true);
 
     try {
